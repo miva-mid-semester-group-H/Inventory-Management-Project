@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="
+<head>
+    <meta charset=" UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>signup page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">🏛 </div>
+        <div class="logo-word">INVETORY<BR>MANAGEMENT</div>
+    </header>
+    <div class="body">
+        <form>
+            <div class="container_SIGNUP">
+                <h1>CREATE ACCOUNT</h1>
+            </div>
+            <div class="container_FORM">
+                <div class="can">
+                    <label for="username Fisrtname">User Name</label><br>
+                    <input id="username" type="text" name="username" placeholder="Username" required><br>
+                </div>
+                <div class="can">
+                    <label for="username lastname">User Name</label><br>
+                    <input id="username" type="text" name="username" placeholder="Username" required><br>
+                </div>
+                <div class="can">
+                    <label for="email">Email</label><br>
+                    <input id="Email" type="email" name="email" placeholder="email" required><br>
+                </div>
+                <div class="Gender">
+                    <label for="Gender;">Gender:</label>
+                    <label for="male">Male</label>
+                    <input id="male check" type="radio" name="Gender">
+                    <label for="female">Female</label>
+                    <input id="female check" type="radio" name="Gender"><br>
+                </div>
+                <div class="can">
+                    <label for="password">PassWord</label><br>
+                    <input id="password" type="text" name="password" placeholder="PassWord" required><br>
+                </div>
+                <div class="can">
+                    <label for="Confirm password">PassWord</label><br>
+                    <input id="password" type="text" name="Comfirmpassword" placeholder="Comfirm PassWord" required><br>
+                </div>
+                <div class="check">
+                    <input id="checkbox" type="checkbox" required>
+                    <label for="I agree with terms and services and privacy policy">I agree with terms and services of
+                        this policy</label><br>
+                </div>
+                <div class="container_BUTTON">
+                    <button type="submit">SIGN UP</button>
+                </div>
+            </div>
+            <p class="login">Already have an account ? <a href="login.html">Log in</a></p>
+        </form>
+        <div class="side-logo">
+            <div id="first">
+                <div class="logos">📦</div>
+                <p class="word">Effortlessly Track<br>Your Item</p>
+            </div>
+            <div id="second">
+                <div class="logos">🔔</div>
+                <P class="word">Never Run Out Again<br>With Smart Alert</P>
+            </div>
+            <div id="thrird">
+                <div class="logos">📈</div>
+                <p class="word">Visualise Your<br>Invetory Value</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

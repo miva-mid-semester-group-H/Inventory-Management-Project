@@ -1,0 +1,127 @@
+Body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    background: color #f0f0f0;
+    height: 100vh;
+
+}
+
+header {
+    display: flex;
+    color: blue;
+    padding: .5rem 1rem;
+    background-color: rgba(234, 231, 231, 0.873);
+}
+
+.logo {
+    font-size: 3rem;
+}
+
+.logo-word {
+    font-size: 1.5rem;
+    padding: 1.5REM;
+}
+
+.container_SIGNUP {
+    text-align: center;
+}
+
+.body {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20rem;
+}
+
+form {
+    /* border: 2px solid black; */
+    gap: 0.7em;
+    padding: 2rem;
+    /* background-color: blue; */
+    color: black;
+    box-shadow: #f0f0f0 5px;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#radio {
+    display: flex;
+}
+
+label {
+    font-size: 1.1rem;
+}
+
+.check {
+    display: flex;
+}
+
+.can {
+    gap: 0.7rem;
+    padding: 1.7rem;
+}
+
+.container_BUTTON {
+    padding: 15px 30px 15px 30px;
+    font-size: 1.2;
+    width: 500px;
+    color: aqua;
+    font-size: 1.5;
+}
+
+button {
+    font-size: 1rem;
+    width: 500px;
+    height: 50px;
+    background-color: blue;
+    color: #f0e5e5;
+}
+
+.container_BUTTON :hover {
+    color: aquamarine;
+}
+
+.login {
+    text-align: center;
+}
+
+.side-logo {
+    width: 520px;
+    height: 110vh;
+    background-color: rgba(213, 209, 209, 0.658);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    /* justify-content: center; */
+
+}
+
+.logos {
+    text-align: center;
+    font-size: 3rem;
+
+}
+
+.word {
+    text-align: center;
+}
+
+#username {
+    font-size: 1.5rem;
+    width: 500px;
+}
+
+#Email {
+    font-size: 1.5rem;
+    width: 500px;
+}
+
+#password {
+    font-size: 1.5rem;
+    width: 500px;
+}

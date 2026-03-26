@@ -1,0 +1,19 @@
+:root {
+    --accent: #1e3a6d;
+    --light: #eeeeee;
+}
+
+.primary{
+    color: var(--accent);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--light);
+    border: none;
+}
+
+.btn:hover{
+    background-color: #cacaca;
+    color: black;
+}

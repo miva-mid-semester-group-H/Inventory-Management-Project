@@ -42,7 +42,7 @@ def login():
 def dashboard():
     if "user" not in session:
         return redirect("/login")
-    return f"Welcome {session['user']}!"
+    return render_template("index.html")
 
 
 @app.route("/logout")

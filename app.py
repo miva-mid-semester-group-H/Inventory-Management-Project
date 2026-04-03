@@ -1,7 +1,24 @@
 from flask import Flask, render_template, request, redirect, session
+from werkzeug.security import generate_password_hash, check_password_hash
+import mysql.connector
+from dotenv import load_dotenv
+import os
+from datetime import datetime
+
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
+
+
+def get_db():
+    return mysql.connector.connect(
+        host=os.getenv("MYSQL_HOST"),
+        port=int(os.getenv("MYSQL_PORT")),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        database=os.getenv("MYSQL_DATABASE")
+    )
 
 
 @app.route("/")
@@ -11,6 +28,10 @@ def home():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    print('request method', request.method) # get
+
+    error = None
+
     if request.method == "POST":
         username = request.form["username"]
         email = request.form["email"]
@@ -19,30 +40,84 @@ def signup():
         confirm_password = request.form["confirm_password"]
 
         if password != confirm_password:
-            return "Passwords do not match!"
+            error = "Passwords do not match!"
+        else:
+            db = get_db()
+            cursor = db.cursor()
 
-        # TODO: pass to database person
-        print(f"New user: {username}, {email}, {gender}, {password}")
-        return redirect("/login")
-    return render_template("signup.html")
+            cursor.execute("SELECT id FROM user WHERE email = %s", (email,))
+            existing_user = cursor.fetchone()
+
+            if existing_user:
+                error = "An account with this email already exists!"
+            else:
+                # Hash the password before saving
+                hashed_password = generate_password_hash(password)
+
+                cursor.execute(
+    "INSERT INTO user (username, email, gender, password, created_at) VALUES (%s, %s, %s, %s, %s)",
+    (username, email, gender, hashed_password, datetime.now())
+)
+                db.commit()
+                cursor.close()
+                db.close()
+                return redirect("/dashboard")
+
+            cursor.close()
+            db.close()
+
+    return render_template("signup.html", error=error)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    error = None
+
     if request.method == "POST":
         email = request.form["email"]
         password = request.form["password"]
-        # TODO: database person handles verification
-        session["user"] = email
-        return redirect("/dashboard")
-    return render_template("signup.html")
+
+        db = get_db()
+        cursor = db.cursor(dictionary=True)
+
+        cursor.execute("SELECT * FROM user WHERE email = %s", (email,))
+        user = cursor.fetchone()
+
+        cursor.close()
+        db.close()
+
+        print('user found:', user)  # ← is user None or a dict?
+        
+        if not user:
+            print('❌ no user found with that email')
+        elif not check_password_hash(user["password"], password):
+            print('❌ password mismatch')
+            print('stored hash:', user["password"])  # should start with scrypt: or pbkdf2:
+        else:
+            session["user"] = user["email"]
+            print('✅ session set:', session)  # ← confirm session is set
+            return redirect("/dashboard")
+
+        error = "Invalid email or password!"
+
+    return render_template("login.html", error=error)
 
 
 @app.route("/dashboard")
 def dashboard():
     if "user" not in session:
         return redirect("/login")
-    return render_template("index.html")
+
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("SELECT * FROM user WHERE email = %s", (session["user"],))
+    user = cursor.fetchone()
+
+    cursor.close()
+    db.close()
+
+    return render_template("index.html", user=user)
 
 
 @app.route("/logout")

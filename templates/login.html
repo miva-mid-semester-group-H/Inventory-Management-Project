@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invntory — Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/static/login.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+
+    <div class="card">
+
+        <!-- Dark header -->
+        <div class="card-top">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="7" height="7" rx="1.5" fill="#1a1a1a"/>
+                        <rect x="11" y="2" width="7" height="7" rx="1.5" fill="#1a1a1a"/>
+                        <rect x="2" y="11" width="7" height="7" rx="1.5" fill="#1a1a1a"/>
+                        <rect x="11" y="11" width="7" height="7" rx="1.5" fill="#1a1a1a"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="brand-name">Invntory</div>
+                    <div class="brand-sub">Management</div>
+                </div>
+            </div>
+            <div class="badge">
+                <div class="badge-dot"></div>
+                <span class="badge-text">System online</span>
+            </div>
+            <h1>Welcome back</h1>
+            <p>Sign in to manage your inventory</p>
+        </div>
+
+        <!-- Form -->
+        <div class="card-body">
+
+            <form method="POST" action="/login">
+
+                <div class="field">
+                    <label for="email">Email address</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+                                <rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/>
+                                <path d="M1.5 5.5l6.5 4 6.5-4"/>
+                            </svg>
+                        </span>
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="you@company.com"
+                            required
+                            autocomplete="email"
+                        />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+                                <rect x="3" y="7" width="10" height="7" rx="1.5"/>
+                                <path d="M5 7V5a3 3 0 016 0v2"/>
+                                <circle cx="8" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+                            </svg>
+                        </span>
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            placeholder="••••••••"
+                            required
+                            autocomplete="current-password"
+                        />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="remember">
+                        <input type="checkbox" name="remember" />
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 3H3a1 1 0 00-1 1v8a1 1 0 001 1h3"/>
+                        <path d="M10 11l3-3-3-3M13 8H6"/>
+                    </svg>
+                    Sign in to dashboard
+                </button>
+
+            </form>
+        </div>
+        <p class="signup-link">Don't have an account? <a href="/signup">Sign up</a></p>
+    </div>
+
+
+</body>
+</html>

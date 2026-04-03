@@ -1,0 +1,308 @@
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Syne', sans-serif;
+            background: #f5f5f2;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 0.5px solid #e0e0da;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 720px;
+            overflow: hidden;
+            /* box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06); */
+            padding-bottom: 40px;
+        }
+
+        /* ── Top dark section ── */
+        .card-top {
+            background: #1a1a1a;
+            padding: 2rem 2rem 1.75rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-icon {
+            width: 36px;
+            height: 36px;
+            background: #E8FF47;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brand-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .brand-name {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .brand-sub {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: #888;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(232, 255, 71, 0.12);
+            border: 0.5px solid rgba(232, 255, 71, 0.3);
+            border-radius: 20px;
+            padding: 4px 12px;
+            margin-bottom: 1rem;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: #E8FF47;
+            border-radius: 50%;
+        }
+
+        .badge-text {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            color: #E8FF47;
+            letter-spacing: 0.05em;
+        }
+
+        .card-top h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .card-top p {
+            font-size: 13px;
+            color: #888;
+            font-weight: 400;
+        }
+
+        /* ── Form section ── */
+        .card-body {
+            padding: 1.75rem 2rem 2rem;
+        }
+
+        /* Error message from Flask */
+        .error-msg {
+            background: #fff1f0;
+            border: 0.5px solid #fca5a5;
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 1.25rem;
+            font-size: 13px;
+            color: #b91c1c;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .error-msg svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .field {
+            margin-bottom: 1.25rem;
+        }
+
+        .field label {
+            display: block;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            color: #888;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-wrap input {
+            width: 100%;
+            height: 44px;
+            padding: 0 14px 0 40px;
+            border: 0.5px solid #d4d4cc;
+            border-radius: 8px;
+            background: #fafaf8;
+            color: #1a1a1a;
+            font-size: 14px;
+            font-family: 'Syne', sans-serif;
+            outline: none;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .input-wrap input:focus {
+            border-color: #1a1a1a;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.06);
+        }
+
+        .input-wrap input::placeholder {
+            color: #b0b0a8;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b0b0a8;
+            pointer-events: none;
+        }
+
+        .input-icon svg {
+            width: 16px;
+            height: 16px;
+            display: block;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .remember input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            accent-color: #1a1a1a;
+            cursor: pointer;
+        }
+
+        .remember span {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .forgot {
+            font-size: 13px;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 0.5px solid #d4d4cc;
+            transition: color 0.15s;
+        }
+
+        .forgot:hover {
+            color: #1a1a1a;
+        }
+
+        .btn {
+            width: 100%;
+            height: 46px;
+            background: #1a1a1a;
+            color: #E8FF47;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: opacity 0.15s, transform 0.1s;
+        }
+
+        .btn:hover {
+            opacity: 0.88;
+        }
+
+        .btn:active {
+            transform: scale(0.99);
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ── Stats strip ── */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 0.5px solid #ebebE6;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 15px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 2px;
+        }
+
+        /* ── Signup link ── */
+        .signup-link {
+            text-align: center;
+            margin-top: 1.25rem;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .signup-link a {
+            color: #1a1a1a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 0.5px solid #1a1a1a;
+        }

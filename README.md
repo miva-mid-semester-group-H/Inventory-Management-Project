@@ -1,7 +1,7 @@
 # SEN 311 Group H — Inventory Management System
 
 ## 🎥 Video Demonstration
-[Watch Demo](https://your-loom-link-here.com) ← Replace with your recording
+[Watch Demo](https://www.loom.com/share/976bea21e9294dc88f6623f2b7cff660) ← Replace with your recording
 
 ---
 

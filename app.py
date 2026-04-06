@@ -28,11 +28,12 @@ def home():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
-    print('request method', request.method) # get
-
+ 
     error = None
 
     if request.method == "POST":
+
+        # REQUIREMENT 3: Validating signup form data using request.form
         username = request.form["username"]
         email = request.form["email"]
         gender = request.form["gender"]
@@ -51,7 +52,7 @@ def signup():
             if existing_user:
                 error = "An account with this email already exists!"
             else:
-                # Hash the password before saving
+                # REQUIREMENT 5: Implementing password hashing for security before DB insertion
                 hashed_password = generate_password_hash(password)
 
                 cursor.execute(
@@ -85,18 +86,13 @@ def login():
 
         cursor.close()
         db.close()
-
-        print('user found:', user)  # ← is user None or a dict?
         
-        if not user:
-            print('❌ no user found with that email')
-        elif not check_password_hash(user["password"], password):
-            print('❌ password mismatch')
-            print('stored hash:', user["password"])  # should start with scrypt: or pbkdf2:
+        if not user or not check_password_hash(user["password"], password):
+            error = "Invalid email or password!"
         else:
-            session["user"] = user["email"]
-            print('✅ session set:', session)  # ← confirm session is set
-            return redirect("/dashboard")
+          session["user"] = user["email"]
+        return redirect("/dashboard")
+
 
         error = "Invalid email or password!"
 
@@ -127,4 +123,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
